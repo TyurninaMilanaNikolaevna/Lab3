@@ -19,6 +19,6 @@ public class FlightDelayApp {
 
         JavaPairRDD<String, Long> f = flightsInformation.mapToPair(
                 
-        )
+        );
     }
 }
