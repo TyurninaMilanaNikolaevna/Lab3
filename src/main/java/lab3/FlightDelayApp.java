@@ -38,19 +38,19 @@ public class FlightDelayApp {
                     int originAirportID = Integer.parseInt(flightDescription[ORIGIN_AIRPORT_ID_POSITION]);
                     int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID_POSITION]);
 
-                    if (Float.parseFloat(flightDescription[CANCELLED_POSITION]) == ZERO) {
-                        boolean cancelledFlight = false;
-                    }
-                    else {
-                        boolean cancelledFlight = true;
-                    }
+                    boolean cancelledFlight;
+                    float flightDelayTime;
 
-                    if (cancelledFlight == true) {
-                        float flightDelayTime = 0;
+                    if (Float.parseFloat(flightDescription[CANCELLED_POSITION]) == ZERO) {
+                        cancelledFlight = false;
                     }
-                    else {
-                        float flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
+                    else cancelledFlight = true;
+
+                    if (cancelledFlight) {
+                        flightDelayTime = 0;
                     }
+                    else flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
+
                     return new Tuple2<>(new Tuple2(originAirportID, destAirportID), new FlightDelaySerializable());
                 }
         );
