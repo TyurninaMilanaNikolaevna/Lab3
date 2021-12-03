@@ -13,8 +13,8 @@ public class FlightDelayApp {
 
     private static final float ZERO = 0.0F;
 
-    private static int AIRPORT_CODE_POSITION = 0;
-    private static int AIRPORT_DESCRIPTION_POSITION = 1;
+    private static final int AIRPORT_CODE_POSITION = 0;
+    private static final int AIRPORT_DESCRIPTION_POSITION = 1;
     private static final int ORIGIN_AIRPORT_ID_POSITION = 11;
     private static final int DEST_AIRPORT_ID_POSITION = 14;
     private static final int ARR_DELAY_POSITION = 18;
@@ -44,10 +44,7 @@ public class FlightDelayApp {
                     boolean isCancelledFlight;
                     float flightDelayTime;
 
-                    if (Float.parseFloat(flightDescription[CANCELLED_POSITION]) == ZERO) {
-                        isCancelledFlight = false;
-                    }
-                    else isCancelledFlight = true;
+                    isCancelledFlight = Float.parseFloat(flightDescription[CANCELLED_POSITION]) != ZERO;
 
                     if (isCancelledFlight) {
                         flightDelayTime = 0;
@@ -75,6 +72,7 @@ public class FlightDelayApp {
                     String[] airportCodeAndDescription = removeAndSplit(value);
                     int airportCode = Integer.parseInt(airportCodeAndDescription[AIRPORT_CODE_POSITION]);
                     String airportDescription = airportCodeAndDescription[AIRPORT_DESCRIPTION_POSITION];
+
                     return new Tuple2<Integer, String>(airportCode, airportDescription);
                 }
         ).collectAsMap();
@@ -84,15 +82,10 @@ public class FlightDelayApp {
 
         JavaRDD<String> res = resultInformation.map(
             value -> {
-                String answer = "\nORIGIN AIRPORT ID: " + airportsBroadcasted.value().get(value._1._1) +
+                return "\nORIGIN AIRPORT ID: " + airportsBroadcasted.value().get(value._1._1) +
                         "\nDEST AIRPORT ID: " + airportsBroadcasted.value().get(value._1._2) +
-                        "\nMAX FLIGHT DELAY TIME: " + airportsBroadcasted.value().get(value._1).getMaxFlightDelayTime() +
-                        "\nDELAY AND CANCELLED FLIGHT PERCENT: ";
-
-                return answer;
-
-
-
+                        "\nMAX FLIGHT DELAY TIME: " + value._2.getMaxFlightDelayTime() +
+                        "\nDELAY AND CANCELLED FLIGHT PERCENT: " + value._2.getDelayAndCancelledFlightPercent();
             }
         );
         res.saveAsTextFile("resultLab3.txt");
