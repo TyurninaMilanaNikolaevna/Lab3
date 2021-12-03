@@ -64,9 +64,8 @@ public class FlightDelayApp {
 
                     float delayAndCancelledPercent = (x.getDelayAndCancelledFlightPercent() * x.getCounter() +
                             y.getDelayAndCancelledFlightPercent() * y.getCounter()) / sumCounter;
-                    
 
-                    return new FlightDelaySerializable();
+                    return new FlightDelaySerializable(maxDelayime, delayAndCancelledPercent, sumCounter);
                 }
         );
     }

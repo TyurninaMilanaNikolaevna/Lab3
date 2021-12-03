@@ -15,8 +15,10 @@ public class FlightDelaySerializable implements Serializable {
         this.flightDelayTime = flightDelayTime;
     }
 
-    public FlightDelaySerializable() {
-
+    public FlightDelaySerializable(float maxFlightDelayTime, float delayAndCancelledFlightPercent, int counter) {
+        this.maxFlightDelayTime = maxFlightDelayTime;
+        this.delayAndCancelledFlightPercent = delayAndCancelledFlightPercent;
+        this.counter = counter;
     }
 
     public float getFlightDelayTime() {
