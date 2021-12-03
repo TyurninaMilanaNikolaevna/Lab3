@@ -13,6 +13,8 @@ public class FlightDelayApp {
 
     private static final float ZERO = 0.0F;
 
+    private static int AIRPORT_CODE_POSITION = 0;
+    private static int AIRPORT_DESCRIPTION_POSITION = 1;
     private static final int ORIGIN_AIRPORT_ID_POSITION = 11;
     private static final int DEST_AIRPORT_ID_POSITION = 14;
     private static final int ARR_DELAY_POSITION = 18;
@@ -68,7 +70,7 @@ public class FlightDelayApp {
                 }
         );
 
-        Map<Integer, String> airportDescription = airportsTextFile.mapToPair(
+        Map<Integer, String> airportInformation = airportsTextFile.mapToPair(
                 value -> {
                     String[] airportCodeAndDescription = removeAndSplit(value);
                     int airportCode = Integer.parseInt(airportCodeAndDescription[AIRPORT_CODE_POSITION]);
