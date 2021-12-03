@@ -13,6 +13,10 @@ public class FlightDelayApp {
     public static final String DELETE_SYMBOL = "\"";
     public static final String SPLITTER = ",";
 
+    public static String[] removeAndSplit(String s) {
+        return s.replaceAll(DELETE_SYMBOL, "").split(SPLITTER);
+    }
+
     public static void main(String[] args) throws Exception {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
@@ -22,11 +26,12 @@ public class FlightDelayApp {
 
         JavaPairRDD<String, Long> f = flightsTextFile.mapToPair(
                 value -> {
-                    String[] flightDescription = value.replaceAll(DELETE_SYMBOL, "")
-                            .split(SPLITTER);
+                    String[] flightDescription = removeAndSplit(value);
+
                     int originAirportID = Integer.parseInt(flightDescription[ORIGIN_AIRPORT_ID]);
                     int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID]);
 
+                    
 
                     // return ;
                 }
