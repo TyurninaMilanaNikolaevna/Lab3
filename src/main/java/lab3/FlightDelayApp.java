@@ -10,6 +10,8 @@ public class FlightDelayApp {
     private static final int originAirportID = 11;
     private static final int destAirportID = 14;
 
+    
+
     public static void main(String[] args) throws Exception {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
@@ -19,7 +21,9 @@ public class FlightDelayApp {
 
         JavaPairRDD<String, Long> f = flightsInformation.mapToPair(
                 s -> {
-
+                    String[] flightDescription = value.toString()
+                            .replaceAll("\"", "")
+                            .split(SPLITTER);
                 }
         );
     }
