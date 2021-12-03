@@ -84,7 +84,7 @@ public class FlightDelayApp {
 
         JavaRDD<String> res = resultInformation.map(
             value -> {
-                String answer = "\nORIGIN AIRPORT ID: " + 
+                String answer = "\nORIGIN AIRPORT ID: " +
                         "\nDEST AIRPORT ID: " +
                         "\nMAX FLIGHT DELAY TIME: " +
                         "\nDELAY AND CANCELLED FLIGHT PERSENT: ";
@@ -92,6 +92,6 @@ public class FlightDelayApp {
                 return answer;
             }
         );
-        res.saveAsTextFile(resultLab3.txt);
+        res.saveAsTextFile("resultLab3.txt");
     }
 }
