@@ -10,7 +10,7 @@ public class FlightDelayApp {
     private static final int ORIGIN_AIRPORT_ID_POSITION = 11;
     private static final int DEST_AIRPORT_ID_POSITION = 14;
     private static final int ARR_DELAY_POSITION = 18;
-    private static final int CANCELLED_POSITION = 
+    private static final int CANCELLED_POSITION = 20;
 
     public static final String DELETE_SYMBOL = "\"";
     public static final String SPLITTER = ",";
@@ -33,8 +33,9 @@ public class FlightDelayApp {
                     int originAirportID = Integer.parseInt(flightDescription[ORIGIN_AIRPORT_ID_POSITION]);
                     int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID_POSITION]);
 
+                    float cancelledFlight = Float.parseFloat(flightDescription[CANCELLED_POSITION]);
                     float flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
-                    if (flightDescription[ARR_DELAY_POSITION].isEmpty()) {
+                    if (flightDescription[CANCELLED_POSITION].isEmp) {
                         flightDelayTime = 0;
                     }
 
