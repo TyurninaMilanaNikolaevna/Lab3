@@ -37,14 +37,14 @@ public class FlightDelayApp {
         flightsTextFile = flightsTextFile.filter(
                 value -> {
                     String[] fl = removeAndSplit(value);
-                    return
+                    return 
                 }
         );
 
         airportsTextFile = airportsTextFile.filter(
                 value -> {
                     String[] ar = removeAndSplit(value);
-                    return 
+                    return
                 }
         )
 
