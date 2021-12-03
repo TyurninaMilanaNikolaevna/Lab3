@@ -34,7 +34,11 @@ public class FlightDelayApp {
         JavaRDD<String> flightsTextFile = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsTextFile = sc.textFile("L_AIRPORT_ID.csv");
 
-        flightsTextFile = flightsTextFile.filter()
+        flightsTextFile = flightsTextFile.filter(
+                s -> {
+                    String[] 
+                }
+        )
 
         JavaPairRDD<Tuple2, FlightDelaySerializable> flightInformation = flightsTextFile.mapToPair(
                 value -> {
