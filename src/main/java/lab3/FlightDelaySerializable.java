@@ -11,5 +11,8 @@ public class FlightDelaySerializable implements Serializable {
         this.flightDelayTime = flightDelayTime;
     }
 
-    private 
+    public float getFlightDelayTime() {
+        return flightDelayTime;
+    }
+
 }
