@@ -56,6 +56,6 @@ public class FlightDelayApp {
                 }
         );
 
-
+        JavaPairRDD<Tuple2, Serializable> resultInformation = Information.reduceByKey()
     }
 }
