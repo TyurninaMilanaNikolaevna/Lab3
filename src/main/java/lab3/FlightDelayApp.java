@@ -59,7 +59,9 @@ public class FlightDelayApp {
         JavaPairRDD<Tuple2, Serializable> resultInformation = Information.reduceByKey(
                 (x, y) -> {
                     float maxDelayime;
-                    if (x.getFlightDelayTime() > )
+                    if (x.getFlightDelayTime() > y.getFlightDelayTime())
+                        maxDelayime = x.getFlightDelayTime();
+                    else maxDelayime = y.getFlightDelayTime();
                 }
         )
     }
