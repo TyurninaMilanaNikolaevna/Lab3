@@ -10,6 +10,8 @@ import java.io.Serializable;
 
 public class FlightDelayApp {
 
+    private static final float ZERO = 0.0F;
+
     private static final int ORIGIN_AIRPORT_ID_POSITION = 11;
     private static final int DEST_AIRPORT_ID_POSITION = 14;
     private static final int ARR_DELAY_POSITION = 18;
@@ -36,8 +38,8 @@ public class FlightDelayApp {
                     int originAirportID = Integer.parseInt(flightDescription[ORIGIN_AIRPORT_ID_POSITION]);
                     int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID_POSITION]);
 
-                    float cancelledFlight = Float.parseFloat(flightDescription[CANCELLED_POSITION]);
-
+                    if (Float.parseFloat(flightDescription[CANCELLED_POSITION]) == ZERO)
+                        boolean cancelledFlight = False;
                     if (cancelledFlight == 1.0) {
                         float flightDelayTime = 0;
                     }
