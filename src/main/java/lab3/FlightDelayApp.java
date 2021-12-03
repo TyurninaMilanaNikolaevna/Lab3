@@ -60,7 +60,7 @@ public class FlightDelayApp {
                 (x, y) -> {
                     float maxDelayime = Math.max(x.getFlightDelayTime(), y.getFlightDelayTime());
 
-
+                    
 
                     return new FlightDelaySerializable();
                 }
