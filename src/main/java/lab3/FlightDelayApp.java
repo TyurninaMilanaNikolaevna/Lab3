@@ -4,6 +4,9 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
+
+import java.io.Serializable;
 
 public class FlightDelayApp {
 
@@ -26,7 +29,7 @@ public class FlightDelayApp {
         JavaRDD<String> flightsTextFile = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsTextFile = sc.textFile("L_AIRPORT_ID.csv");
 
-        JavaPairRDD<String, Long> f = flightsTextFile.mapToPair(
+        JavaPairRDD<Tuple2, Serializable> f = flightsTextFile.mapToPair(
                 value -> {
                     String[] flightDescription = removeAndSplit(value);
 
@@ -34,14 +37,14 @@ public class FlightDelayApp {
                     int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID_POSITION]);
 
                     float cancelledFlight = Float.parseFloat(flightDescription[CANCELLED_POSITION]);
-                    float flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
-                    if (flightDescription[CANCELLED_POSITION].isEmp) {
-                        flightDelayTime = 0;
+
+                    if (cancelledFlight == 1.0) {
+                        float flightDelayTime = 0;
                     }
-
-
-
-                    // return ;
+                    else {
+                        float flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
+                    }
+                    return new Tuple2<>();
                 }
         );
     }
