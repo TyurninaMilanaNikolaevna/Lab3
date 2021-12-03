@@ -83,7 +83,9 @@ public class FlightDelayApp {
 
 
         JavaRDD<String> res = resultInformation.map(
-
+            value -> {
+                
+            }
         );
         // res.saveAsTextFile(resultLab3.txt);
     }
