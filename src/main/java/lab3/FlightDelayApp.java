@@ -7,7 +7,8 @@ import org.apache.spark.api.java.JavaSparkContext;
 
 public class FlightDelayApp {
 
-    private static final int 
+    private static final int originAirportID = 11;
+    private static final int destAirportID = 14;
 
     public static void main(String[] args) throws Exception {
         SparkConf conf = new SparkConf().setAppName("lab3");
