@@ -79,8 +79,7 @@ public class FlightDelayApp {
                 }
         ).collectAsMap();
 
-        final Broadcast<Map<String, AirportData>> airportsBroadcasted =
-                sc.broadcast(stringAirportDataMap);
+        final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(stringAirportDataMap);
 
         // res.saveAsTextFile(resultLab3.txt);
     }
