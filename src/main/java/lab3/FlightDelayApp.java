@@ -82,7 +82,7 @@ public class FlightDelayApp {
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportInformation);
 
 
-
+        JavaRDD
         // res.saveAsTextFile(resultLab3.txt);
     }
 }
