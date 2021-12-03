@@ -58,15 +58,15 @@ public class FlightDelayApp {
 
         JavaPairRDD<Tuple2, FlightDelaySerializable> resultInformation = Information.reduceByKey(
                 (x, y) -> {
-                    float maxDelayime = Math.max(x.getFlightDelayTime(), y.getFlightDelayTime());
-
+                    float maxDelayTime = Math.max(x.getFlightDelayTime(), y.getFlightDelayTime());
                     int sumCounter = x.getCounter() + y.getCounter();
-
                     float delayAndCancelledPercent = (x.getDelayAndCancelledFlightPercent() * x.getCounter() +
                             y.getDelayAndCancelledFlightPercent() * y.getCounter()) / sumCounter;
 
-                    return new FlightDelaySerializable(maxDelayime, delayAndCancelledPercent, sumCounter);
+                    return new FlightDelaySerializable(maxDelayTime, delayAndCancelledPercent, sumCounter);
                 }
         );
+
+        
     }
 }

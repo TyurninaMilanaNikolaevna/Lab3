@@ -13,6 +13,11 @@ public class FlightDelaySerializable implements Serializable {
     public FlightDelaySerializable(boolean isCancelledFlight, float flightDelayTime) {
         this.isCancelledFlight = isCancelledFlight;
         this.flightDelayTime = flightDelayTime;
+
+        if (flightDelayTime > 0 || isCancelledFlight) {
+            this.delayAndCancelledFlightPercent = 100.0F;
+        }
+        else this.delayAndCancelledFlightPercent = 0.0F;
     }
 
     public FlightDelaySerializable(float maxFlightDelayTime, float delayAndCancelledFlightPercent, int counter) {
