@@ -75,7 +75,7 @@ public class FlightDelayApp {
                     String[] airportCodeAndDescription = removeAndSplit(value);
                     int airportCode = Integer.parseInt(airportCodeAndDescription[AIRPORT_CODE_POSITION]);
                     String airportDescription = airportCodeAndDescription[AIRPORT_DESCRIPTION_POSITION];
-                    return new Tuple2<>();
+                    return new Tuple2<Integer, String>(airportCode, airportDescription);
                 }
         );
 
