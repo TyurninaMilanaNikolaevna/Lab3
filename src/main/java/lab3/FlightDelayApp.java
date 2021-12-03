@@ -33,6 +33,9 @@ public class FlightDelayApp {
                     int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID_POSITION]);
 
                     float flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
+                    if (flightDelayTime.isEmpty()) {
+                        
+                    }
 
                     // return ;
                 }
