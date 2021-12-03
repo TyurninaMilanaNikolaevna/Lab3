@@ -10,7 +10,7 @@ public class FlightDelayApp {
     private static final int originAirportID = 11;
     private static final int destAirportID = 14;
 
-    public static final String REMOVAL_SY
+    public static final String DELETE_SYMBOL = "\"";
     public static final String SPLITTER = ",";
 
     public static void main(String[] args) throws Exception {
@@ -21,10 +21,11 @@ public class FlightDelayApp {
         JavaRDD<String> airportsInformation = sc.textFile("L_AIRPORT_ID.csv");
 
         JavaPairRDD<String, Long> f = flightsInformation.mapToPair(
-                s -> {
+                value -> {
                     String[] flightDescription = value.toString()
-                            .replaceAll("\"", "")
+                            .replaceAll(DELETE_SYMBOL, "")
                             .split(SPLITTER);
+                    return ;
                 }
         );
     }
