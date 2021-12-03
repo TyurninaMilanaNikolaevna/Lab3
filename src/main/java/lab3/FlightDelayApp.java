@@ -44,7 +44,7 @@ public class FlightDelayApp {
                     else {
                         float flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
                     }
-                    return new Tuple2<>(new Tuple2());
+                    return new Tuple2<>(new Tuple2(originAirportID, destAirportID), new FlightDelaySerializable());
                 }
         );
     }
