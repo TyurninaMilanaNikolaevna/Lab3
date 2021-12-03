@@ -71,6 +71,8 @@ public class FlightDelayApp {
         Map<Integer, String> airportDescription = airportsTextFile.mapToPair(
                 value -> {
                     String[] airportCodeAndDescription = removeAndSplit(value);
+                    int airportCode = Integer.parseInt(airportCodeAndDescription[AIRPORT_CODE_POSITION]);
+                    String airportDescription = airportCodeAndDescription[AIRPORT_DESCRIPTION_POSITION];
                     return new Tuple2<>();
                 }
         );
