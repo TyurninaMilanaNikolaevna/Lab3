@@ -36,17 +36,17 @@ public class FlightDelayApp {
 
         flightsTextFile = flightsTextFile.filter(
                 value -> {
-                    String[] fl = removeAndSplit(value);
-                    return 
+                    String[] info = removeAndSplit(value);
+                    return !(info[0].equals("YEAR"));
                 }
         );
 
         airportsTextFile = airportsTextFile.filter(
                 value -> {
-                    String[] ar = removeAndSplit(value);
-                    return
+                    String[] info = removeAndSplit(value);
+                    return !(info[0].equals("CODE"));
                 }
-        )
+        );
 
         JavaPairRDD<Tuple2, FlightDelaySerializable> flightInformation = flightsTextFile.mapToPair(
                 value -> {
