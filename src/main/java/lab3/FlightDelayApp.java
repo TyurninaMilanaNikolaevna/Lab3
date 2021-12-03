@@ -22,8 +22,7 @@ public class FlightDelayApp {
 
         JavaPairRDD<String, Long> f = flightsTextFile.mapToPair(
                 value -> {
-                    String[] flightDescription = value.toString()
-                            .replaceAll(DELETE_SYMBOL, "")
+                    String[] flightDescription = value.replaceAll(DELETE_SYMBOL, "")
                             .split(SPLITTER);
                     int originAirportID = Integer.parseInt(flightDescription[ORIGIN_AIRPORT_ID]);
                     int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID]);
