@@ -35,8 +35,9 @@ public class FlightDelayApp {
         JavaRDD<String> airportsTextFile = sc.textFile("L_AIRPORT_ID.csv");
 
         flightsTextFile = flightsTextFile.filter(
-                s -> {
-                    String[] 
+                value -> {
+                    String[] fl = removeAndSplit(value);
+                    return 
                 }
         )
 
