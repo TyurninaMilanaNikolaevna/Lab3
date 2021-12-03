@@ -9,6 +9,6 @@ public class FlightDelayApp {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> Flights = 
+        JavaRDD<String> Flights = sc.textFile(Hadoop "6");
     }
 }
