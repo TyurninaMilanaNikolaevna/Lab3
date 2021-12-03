@@ -10,8 +10,9 @@ public class FlightDelayApp {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
-        JavaRDD<String> airports = sc.textFile("L_AIRPORT.csv");
+        JavaRDD<String> flightsInformation = sc.textFile("664600583_T_ONTIME_sample.csv");
+        JavaRDD<String> airportsInformation = sc.textFile("L_AIRPORT_ID.csv");
 
+        
     }
 }
