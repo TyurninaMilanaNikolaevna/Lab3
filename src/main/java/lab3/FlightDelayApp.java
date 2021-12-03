@@ -2,5 +2,5 @@ package lab3;
 
 public class FlightDelayApp {
 
-    public static void 
+    public static void main(String)
 }
