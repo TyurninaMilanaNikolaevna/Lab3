@@ -67,7 +67,12 @@ public class FlightDelayApp {
                 }
         );
 
-        Map<Integer, String> airportDescription
+        Map<Integer, String> airportDescription = airportsTextFile.mapToPair(
+                value -> {
+
+                    return ;
+                }
+        );
 
         // res.saveAsTextFile(resultLab3.txt);
     }
