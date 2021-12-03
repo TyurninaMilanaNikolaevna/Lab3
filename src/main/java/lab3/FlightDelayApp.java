@@ -37,6 +37,13 @@ public class FlightDelayApp {
         flightsTextFile = flightsTextFile.filter(
                 value -> {
                     String[] fl = removeAndSplit(value);
+                    return
+                }
+        );
+
+        airportsTextFile = airportsTextFile.filter(
+                value -> {
+                    String[] ar = removeAndSplit(value);
                     return 
                 }
         )
@@ -85,7 +92,6 @@ public class FlightDelayApp {
         ).collectAsMap();
 
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportInformation);
-
 
         JavaRDD<String> res = resultInformation.map(
             value -> {
