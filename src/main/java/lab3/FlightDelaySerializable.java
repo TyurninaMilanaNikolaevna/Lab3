@@ -3,7 +3,6 @@ package lab3;
 import java.io.Serializable;
 
 public class FlightDelaySerializable implements Serializable {
-    private boolean isCancelledFlight;
     private float flightDelayTime;
 
     private float maxFlightDelayTime;
@@ -11,7 +10,6 @@ public class FlightDelaySerializable implements Serializable {
     private int counter = 1;
 
     public FlightDelaySerializable(boolean isCancelledFlight, float flightDelayTime) {
-        this.isCancelledFlight = isCancelledFlight;
         this.flightDelayTime = flightDelayTime;
 
         if (flightDelayTime > 0 || isCancelledFlight) {
@@ -41,5 +39,4 @@ public class FlightDelaySerializable implements Serializable {
     public float getMaxFlightDelayTime() {
         return maxFlightDelayTime;
     }
-
 }

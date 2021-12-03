@@ -91,15 +91,13 @@ public class FlightDelayApp {
                 }
         ).collectAsMap();
 
-        final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportInformation);
+        final Broadcast<Map<Integer, String>> airportsBroadcast = sc.broadcast(airportInformation);
 
         JavaRDD<String> res = resultInformation.map(
-            value -> {
-                return "\nORIGIN AIRPORT ID: " + airportsBroadcasted.value().get(value._1._1) +
-                        "\nDEST AIRPORT ID: " + airportsBroadcasted.value().get(value._1._2) +
-                        "\nMAX FLIGHT DELAY TIME: " + value._2.getMaxFlightDelayTime() +
-                        "\nDELAY AND CANCELLED FLIGHT PERCENT: " + value._2.getDelayAndCancelledFlightPercent();
-            }
+            value -> "\nORIGIN AIRPORT ID: " + airportsBroadcast.value().get(value._1._1) +
+                    "\nDEST AIRPORT ID: " + airportsBroadcast.value().get(value._1._2) +
+                    "\nMAX FLIGHT DELAY TIME: " + value._2.getMaxFlightDelayTime() +
+                    "\nDELAY AND CANCELLED FLIGHT PERCENT: " + value._2.getDelayAndCancelledFlightPercent()
         );
         res.saveAsTextFile("resultLab3.txt");
     }
