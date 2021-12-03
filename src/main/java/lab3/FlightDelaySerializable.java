@@ -27,4 +27,8 @@ public class FlightDelaySerializable implements Serializable {
         return counter;
     }
 
+    public float getDelayAndCancelledFlightPercent() {
+        return delayAndCancelledFlightPercent;
+    }
+
 }
