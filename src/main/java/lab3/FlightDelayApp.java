@@ -10,7 +10,7 @@ public class FlightDelayApp {
     private static final int ORIGIN_AIRPORT_ID_POSITION = 11;
     private static final int DEST_AIRPORT_ID_POSITION = 14;
     private static final int ARR_DELAY_POSITION = 18;
-    private static final int CANCELLED_POSITION = 20;
+    private static final int CANCELLED_POSITION = 19;
 
     public static final String DELETE_SYMBOL = "\"";
     public static final String SPLITTER = ",";
