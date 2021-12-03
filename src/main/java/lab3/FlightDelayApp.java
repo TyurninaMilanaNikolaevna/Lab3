@@ -7,6 +7,8 @@ import org.apache.spark.api.java.JavaSparkContext;
 
 public class FlightDelayApp {
 
+    private static final int 
+
     public static void main(String[] args) throws Exception {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
@@ -15,7 +17,7 @@ public class FlightDelayApp {
         JavaRDD<String> airportsInformation = sc.textFile("L_AIRPORT_ID.csv");
 
         JavaPairRDD<String, Long> f = flightsInformation.mapToPair(
-                
+
         )
     }
 }
