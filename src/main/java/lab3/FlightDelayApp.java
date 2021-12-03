@@ -44,7 +44,7 @@ public class FlightDelayApp {
         airportsTextFile = airportsTextFile.filter(
                 value -> {
                     String[] info = removeAndSplit(value);
-                    return !(info[0].equals("CODE"));
+                    return !(info[0].equals("Code"));
                 }
         );
 
