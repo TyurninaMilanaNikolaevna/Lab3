@@ -10,4 +10,6 @@ public class FlightDelaySerializable implements Serializable {
         this.isCancelledFlight = isCancelledFlight;
         this.flightDelayTime = flightDelayTime;
     }
+
+    private 
 }
