@@ -86,7 +86,7 @@ public class FlightDelayApp {
             value -> {
                 String answer = "\nORIGIN AIRPORT ID: " + airportsBroadcasted.value().get(value._1._1) +
                         "\nDEST AIRPORT ID: " + airportsBroadcasted.value().get(value._1._2) +
-                        "\nMAX FLIGHT DELAY TIME: " + 
+                        "\nMAX FLIGHT DELAY TIME: " + airportsBroadcasted.value().get(value._1).getMaxFlightDelayTime() +
                         "\nDELAY AND CANCELLED FLIGHT PERCENT: ";
 
                 return answer;
