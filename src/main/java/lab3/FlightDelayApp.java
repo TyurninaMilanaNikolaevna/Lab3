@@ -67,6 +67,8 @@ public class FlightDelayApp {
                 }
         );
 
-        res.saveAsTextFile(resultLab3.txt);
+        
+
+        // res.saveAsTextFile(resultLab3.txt);
     }
 }
