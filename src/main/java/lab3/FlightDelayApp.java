@@ -4,9 +4,9 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 
-import java.io.Serializable;
 import java.util.Map;
 
 public class FlightDelayApp {
@@ -79,7 +79,9 @@ public class FlightDelayApp {
                 }
         ).collectAsMap();
 
-        final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(stringAirportDataMap);
+        final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportInformation);
+
+
 
         // res.saveAsTextFile(resultLab3.txt);
     }
