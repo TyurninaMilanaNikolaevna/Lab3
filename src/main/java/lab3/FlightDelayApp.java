@@ -77,7 +77,9 @@ public class FlightDelayApp {
                     String airportDescription = airportCodeAndDescription[AIRPORT_DESCRIPTION_POSITION];
                     return new Tuple2<Integer, String>(airportCode, airportDescription);
                 }
-        );
+        ).collectAsMap();
+
+        
 
         // res.saveAsTextFile(resultLab3.txt);
     }
