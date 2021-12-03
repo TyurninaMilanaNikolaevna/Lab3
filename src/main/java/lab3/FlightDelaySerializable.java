@@ -1,4 +1,10 @@
 package lab3;
 
-public class FlightDelaySerializable {
+import java.io.Serializable;
+
+public class FlightDelaySerializable implements Serializable {
+
+    public FlightDelaySerializable() {
+
+    }
 }
