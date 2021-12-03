@@ -38,4 +38,8 @@ public class FlightDelaySerializable implements Serializable {
         return delayAndCancelledFlightPercent;
     }
 
+    public float getMaxFlightDelayTime() {
+        return maxFlightDelayTime;
+    }
+
 }
