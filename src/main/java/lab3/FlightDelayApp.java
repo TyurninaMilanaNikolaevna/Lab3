@@ -84,8 +84,11 @@ public class FlightDelayApp {
 
         JavaRDD<String> res = resultInformation.map(
             value -> {
-                String answer = ;
-                
+                String answer = "\nORIGIN AIRPORT ID: " + 
+                        "\nDEST AIRPORT ID: " +
+                        "\nMAX FLIGHT DELAY TIME: " +
+                        "\nDELAY AND CANCELLED FLIGHT PERSENT: ";
+
                 return answer;
             }
         );
