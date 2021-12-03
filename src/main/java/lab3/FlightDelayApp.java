@@ -61,7 +61,8 @@ public class FlightDelayApp {
                     float maxDelayime = Math.max(x.getFlightDelayTime(), y.getFlightDelayTime());
 
                     int sumCounter = x.getCounter() + y.getCounter();
-                    
+
+                    float 
 
                     return new FlightDelaySerializable();
                 }
