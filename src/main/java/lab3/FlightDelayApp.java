@@ -27,7 +27,7 @@ public class FlightDelayApp {
         return s.replaceAll(DELETE_SYMBOL, "").split(SPLITTER);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
