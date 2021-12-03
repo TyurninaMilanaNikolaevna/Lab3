@@ -31,7 +31,7 @@ public class FlightDelayApp {
         JavaRDD<String> flightsTextFile = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsTextFile = sc.textFile("L_AIRPORT_ID.csv");
 
-        JavaPairRDD<Tuple2, Serializable> f = flightsTextFile.mapToPair(
+        JavaPairRDD<Tuple2, Serializable> Information = flightsTextFile.mapToPair(
                 value -> {
                     String[] flightDescription = removeAndSplit(value);
 
@@ -55,5 +55,7 @@ public class FlightDelayApp {
                             new FlightDelaySerializable(isCancelledFlight, flightDelayTime));
                 }
         );
+
+        
     }
 }
