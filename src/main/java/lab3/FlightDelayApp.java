@@ -7,8 +7,8 @@ import org.apache.spark.api.java.JavaSparkContext;
 
 public class FlightDelayApp {
 
-    private static final int originAirportID = 11;
-    private static final int destAirportID = 14;
+    private static final int ORIGIN_AIRPORT_ID = 11;
+    private static final int DEST_AIRPORT_ID = 14;
 
     public static final String DELETE_SYMBOL = "\"";
     public static final String SPLITTER = ",";
@@ -17,15 +17,19 @@ public class FlightDelayApp {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> flightsInformation = sc.textFile("664600583_T_ONTIME_sample.csv");
-        JavaRDD<String> airportsInformation = sc.textFile("L_AIRPORT_ID.csv");
+        JavaRDD<String> flightsTextFile = sc.textFile("664600583_T_ONTIME_sample.csv");
+        JavaRDD<String> airportsTextFile = sc.textFile("L_AIRPORT_ID.csv");
 
-        JavaPairRDD<String, Long> f = flightsInformation.mapToPair(
+        JavaPairRDD<String, Long> f = flightsTextFile.mapToPair(
                 value -> {
                     String[] flightDescription = value.toString()
                             .replaceAll(DELETE_SYMBOL, "")
                             .split(SPLITTER);
-                    return ;
+                    int originAirportID = Integer.parseInt(flightDescription[ORIGIN_AIRPORT_ID]);
+                    int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID]);
+
+
+                    // return ;
                 }
         );
     }
