@@ -7,6 +7,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class FlightDelayApp {
 
@@ -31,7 +32,7 @@ public class FlightDelayApp {
         JavaRDD<String> flightsTextFile = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsTextFile = sc.textFile("L_AIRPORT_ID.csv");
 
-        JavaPairRDD<Tuple2, FlightDelaySerializable> Information = flightsTextFile.mapToPair(
+        JavaPairRDD<Tuple2, FlightDelaySerializable> flightInformation = flightsTextFile.mapToPair(
                 value -> {
                     String[] flightDescription = removeAndSplit(value);
 
@@ -56,7 +57,7 @@ public class FlightDelayApp {
                 }
         );
 
-        JavaPairRDD<Tuple2, FlightDelaySerializable> resultInformation = Information.reduceByKey(
+        JavaPairRDD<Tuple2, FlightDelaySerializable> resultInformation = flightInformation.reduceByKey(
                 (x, y) -> {
                     float maxDelayTime = Math.max(x.getFlightDelayTime(), y.getFlightDelayTime());
                     int sumCounter = x.getCounter() + y.getCounter();
@@ -69,8 +70,8 @@ public class FlightDelayApp {
 
         Map<Integer, String> airportDescription = airportsTextFile.mapToPair(
                 value -> {
-
-                    return ;
+                    String[] airportCodeAndDescription = removeAndSplit(value);
+                    return new Tuple2<>();
                 }
         );
 
