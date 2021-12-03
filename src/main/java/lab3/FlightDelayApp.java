@@ -31,7 +31,7 @@ public class FlightDelayApp {
                     int originAirportID = Integer.parseInt(flightDescription[ORIGIN_AIRPORT_ID]);
                     int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID]);
 
-                    
+                    float flightDelayTime = Float.parseFloat(flightDescription[])
 
                     // return ;
                 }
