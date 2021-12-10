@@ -41,5 +41,7 @@ public class FlightDelaySerializable implements Serializable {
     }
 
     @Override
-    public String
+    public String toString() {
+        
+    }
 }
