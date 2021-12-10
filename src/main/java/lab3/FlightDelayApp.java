@@ -61,9 +61,7 @@ public class FlightDelayApp {
                     if (flightDescription[ARR_DELAY_POSITION].isEmpty())  {
                         flightDelayTime = ZERO;
                     }
-                    else {
-                        flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
-                    }
+                    else flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
 
                     return new Tuple2<>(new Tuple2(originAirportID, destAirportID),
                             new FlightDelaySerializable(isCancelledFlight, flightDelayTime));
