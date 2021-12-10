@@ -58,10 +58,10 @@ public class FlightDelayApp {
                     boolean isCancelledFlight = Float.parseFloat(flightDescription[CANCELLED_POSITION]) != ZERO;
                     float flightDelayTime;
 
-                    if (isCancelledFlight) {
+                    if (flightDescription[ARR_DELAY_POSITION].isEmpty())  {
                         flightDelayTime = ZERO;
                     }
-                    if (!isCancelledFlight && !flightDescription[ARR_DELAY_POSITION].isEmpty()) {
+                    else {
                         flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
                     }
 
