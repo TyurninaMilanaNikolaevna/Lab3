@@ -33,7 +33,6 @@ public class FlightDelayApp {
 
         JavaRDD<String> flightsTextFile = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsTextFile = sc.textFile("L_AIRPORT_ID.csv");
-        System.out.println("GOOD");
 
         flightsTextFile = flightsTextFile.filter(
                 value -> {
