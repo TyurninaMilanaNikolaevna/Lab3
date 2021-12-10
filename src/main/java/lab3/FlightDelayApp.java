@@ -55,13 +55,11 @@ public class FlightDelayApp {
                     int originAirportID = Integer.parseInt(flightDescription[ORIGIN_AIRPORT_ID_POSITION]);
                     int destAirportID = Integer.parseInt(flightDescription[DEST_AIRPORT_ID_POSITION]);
 
-                    boolean isCancelledFlight;
+                    boolean isCancelledFlight = Float.parseFloat(flightDescription[CANCELLED_POSITION]) != ZERO;
                     float flightDelayTime;
 
-                    isCancelledFlight = Float.parseFloat(flightDescription[CANCELLED_POSITION]) != ZERO;
-
                     if (isCancelledFlight) {
-                        flightDelayTime = 0;
+                        flightDelayTime = ZERO;
                     }
                     else flightDelayTime = Float.parseFloat(flightDescription[ARR_DELAY_POSITION]);
 
