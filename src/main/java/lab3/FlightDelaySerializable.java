@@ -42,6 +42,6 @@ public class FlightDelaySerializable implements Serializable {
 
     @Override
     public String toString() {
-        return delayAndCancelledFlightPercent +
+        return "Delay + Cancelled Percent: " + delayAndCancelledFlightPercent;
     }
 }
