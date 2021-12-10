@@ -39,9 +39,4 @@ public class FlightDelaySerializable implements Serializable {
     public float getMaxFlightDelayTime() {
         return maxFlightDelayTime;
     }
-
-    @Override
-    public String toString() {
-        return "Delay + Cancelled Percent: " + delayAndCancelledFlightPercent;
-    }
 }
