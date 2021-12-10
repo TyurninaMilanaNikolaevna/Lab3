@@ -39,4 +39,7 @@ public class FlightDelaySerializable implements Serializable {
     public float getMaxFlightDelayTime() {
         return maxFlightDelayTime;
     }
+
+    @Override
+    
 }

@@ -99,6 +99,6 @@ public class FlightDelayApp {
                     "\nMAX FLIGHT DELAY TIME: " + value._2.getMaxFlightDelayTime() +
                     "\nDELAY AND CANCELLED FLIGHT PERCENT: " + value._2.getDelayAndCancelledFlightPercent()
         );
-        res.saveAsTextFile("resultLab3.txt");
+        res.saveAsTextFile("resultLab3");
     }
 }
